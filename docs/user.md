@@ -70,6 +70,9 @@ Response Body Error :
 
 Endpoint : PATCH /api/users/current
 
+Headers :
+- Authorization : token
+
 Request Body : 
 
 ```json
@@ -84,9 +87,8 @@ Response Body Success :
 ```json
 {
     "data" : {
-        "token" : "unique-token",
         "username" : "wydesu",
-        "name" : "Dedy Surya Wijaya"
+        "name" : "Dedy Surya Wijaya dua"
     }
 }
 ```
@@ -95,9 +97,55 @@ Response Body Error :
 
 ```json
 {
-    "errors" : "Username or password wrong"
+    "errors" : "Name length max 100"
 }
 ```
 
 ## Get User
+
+Endpoint : GET /api/users/current
+
+Headers :
+- Authorization : token
+
+Response Body Success : 
+
+```json
+{
+    "data" : {
+        "username" : "wydesu",
+        "name" : "Dedy Surya Wijaya dua"
+    }
+}
+```
+
+Response Body Error :
+
+```json
+{
+    "errors" : "Unauthorized"
+}
+```
+
 ## Logout User
+
+Endpoint : DELETE /api/users/logout
+
+Headers :
+- Authorization : token
+
+Response Body Success : 
+
+```json
+{
+    "data" : "OK"
+}
+```
+
+Response Body Error :
+
+```json
+{
+    "errors" : "Unauthorized"
+}
+```
